@@ -1,0 +1,275 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{graphicx,float}
+\usepackage{geometry}   
+\usepackage{booktabs}
+\usepackage[affil-it]{authblk}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage[toc,page]{appendix}
+\usepackage{mathtools}
+\usepackage{physics}
+\geometry{letterpaper} 
+
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+
+\title{Measuring the Drag Coefficient of a Ping Pong Ball}
+\author{Naili Ding, Konrad Lyle}
+\affil{\normalfont Department of Physics, Colorado College}
+\date{April 15, 2018}
+\maketitle
+
+\begin{abstract}
+This experiment was designed to find the drag coefficient of a ping pong ball. Our main approach was to find the terminal speed of the ball. A special instrument was built in order to precisely measure the final velocity of the falling ball. The drag coefficient was found to be $C_{\textnormal{d}}\,=\,0.33$, which is consistent with the theoretical prediction for a sphere. 
+\end{abstract}
+
+\section{Introduction}
+
+\noindent The main purpose of this experiment was to find the drag coefficient of a ``Stiga Star One" (brand name) ping pong ball. Drag coefficient, denoted as $C_{\textnormal{d}}$, is a dimensionless factor used to quantify the drag of an object in fluid environment, for example, air, water, oil etc. The drag coefficient depends on the shape of the objects. Therefore, the study of drag coefficient has practical use in fluid dynamics and aerodynamics. For example, car makers study this factor in order to design the shape of their sports cars.
+
+\noindent In this experiment, we were interested in studying how a ping pong ball would fall with the existence of air. By understanding the relationship between the final velocity of the ball and the height it was dropped from, we should be able to probe the drag coefficient associated with any spherical objects. The drag coefficient is defined as,
+
+\begin{eqnarray}
+C_{\textnormal{d}}&=&\frac{2\,F_{\textnormal{d}}}{\rho\,A\,v^{2}},
+\label{eqn:ddef}
+\end{eqnarray}
+
+\noindent where $F_{\textnormal{d}}$ is the drag force, $\rho$ is the density of the fluid, $v$  is the velocity of the object, and $A$ is the cross-sectional area of that object.
+
+\section{Theory}
+The drag coefficient of a falling ping pong ball could be understood by using basic Newtonian mechanics. We should first start from Newton's Second Law of Motion, 
+
+\begin{eqnarray}
+\sum\vec{F}&=&m\vec{a}. \label{eqn:eqn1}
+\end{eqnarray}
+
+\noindent A simple force diagram needs to be drawn in order to analyze how many forces took part in this process. As Figure~\ref{fig:forcediagram} indicates, the free-falling ball only experiences two forces: the gravitational force, $\vec{F}_{\textnormal{grav}}$, which essentially causes the ball to fall, and the drag force, $\vec{F}_{\textnormal{drag}}$, which opposes the gravitational force. Therefore, if $\vec{F}_{\textnormal{grav}}$ is defined to be pointing downwards, then $\vec{F}_{\textnormal{drag}}$ points upwards to cancel out some of the force due to gravity. Suppose the ball is falling inside a vacuum box, then there is no drag force (negligible), and the equation could be simplified as
+
+\begin{eqnarray}
+\vec{F}_{\textnormal{grav}}&=&-mg,
+\end{eqnarray}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.18\textwidth]{ball.png}
+\caption{simple force diagram}
+\label{fig:forcediagram}
+\end{figure}
+
+\noindent However, with the presence of air resistance, drag force must be taken into account. For now, we assume drag force has a linear relationship with velocity, thus $\vec{F}_{\textnormal{drag}}\,=\,C_{\textnormal{d}}\,\vec{v}$, where $C_{\textnormal{d}}$ is the drag coefficient we are interested to find out. Also we understand that $\vec{a}$ is the acceleration, which could be written as $\frac{d\vec{v}}{dt}$. Therefore, putting all the existing information together and referring back to Equation~\ref{eqn:eqn1}, we have a deferential equation to solve
+
+\begin{eqnarray}
+\vec{F}_{\textnormal{grav}}\,+\,\vec{F}_{\textnormal{drag}}&=&m\vec{a}, \\
+-mg\,+\,C_{\textnormal{d}}\,v&=&m\,\frac{dv}{dt}. 
+\end{eqnarray}
+
+\noindent After some rearranging, the equation becomes
+
+\begin{eqnarray}
+\frac{m\,dv}{-mg\,+\,C_{\textnormal{d}}\,v}&=&dt.
+\end{eqnarray}
+
+\noindent Apparantly, the differential equation could be solved by integrating both sides. 
+
+\begin{eqnarray}
+\int_{v_{\textnormal{i}}}^{v_{\textnormal{f}}} \frac{m}{-mg\,+\,C_{\textnormal{d}}\,v}\,dv&=&\int_{t_{\textnormal{i}}}^{t_{\textnormal{f}}}dt.
+\end{eqnarray}
+
+\noindent For this case, we were assuming linear relationship between drag force and velocity. However, given the spherical shape of a ping pong ball, the quadratic term dominates as the ball reaches high velocity, which means $F_{\textnormal{drag}}\,\propto\,C_{\textnormal{d}}\,v^{2}$. If we substitute this new drag force back to Equation~\ref{eqn:eqn1}, the differential equation would be much more complicated to solve. 
+
+\noindent Therefore, in order to simplify the equation, an assumption needs to be made, that is, the ball will reach terminal velocity when it hits the ground. In other words, the building has to be tall enough for the ball to reach terminal velocity. If the ping pong ball was dropped from a very high floor and reached terminal velocity, then there would be no more acceleration for the ball due to a net force of zero. Following this assumption and understanding the quadratic relationship is actually, 
+
+
+\begin{eqnarray}
+F_{\textnormal{drag}}&=&\frac{1}{2}\,C_{\textnormal{d}}\,\rho_{\textnormal{air}}\,A\,v^{2},
+\end{eqnarray}
+\noindent where $\rho_{air}$ is the air density and $A$ is the cross-sectional area of the ping pong ball, we can derive 
+
+\begin{eqnarray}
+-mg\,+\,\frac{1}{2}\,C_{\textnormal{d}}\,\rho_{\textnormal{air}}\,A\,v^{2}&=&m\,\frac{dv}{dt}.
+\end{eqnarray}
+
+\noindent As we assumed earlier that there's no acceleration for the ping pong ball when it touches the ground, then $\frac{dv}{dt}\,=\,0$, and we will have 
+\begin{eqnarray}
+\frac{1}{2}\,C_{\textnormal{d}}\,\rho\,A\,v_{\textnormal{term}}^{2}&=&mg. 
+\end{eqnarray}
+
+\noindent Solving this equation would be simple, and we can finally get the formula for the drag coefficient, which is 
+
+\begin{eqnarray}
+C_{\textnormal{d}}&=&\frac{2\,mg}{\rho_{\textnormal{air}}\,A\,v_{\textnormal{term}}^{2}}. \label{eqn:cd}
+\end{eqnarray}
+
+\section{Experimental Design}
+
+\noindent The success of this experiment relies on the assumption that the building is tall enough for the ball to reach terminal velocity. Therefore, $v_{\textnormal{term}}$ needs to be estimated in the first place. The formula for $v_{\textnormal{term}}$ could be obtained by rearranging Equation~\ref{eqn:cd}. 
+
+\begin{eqnarray}
+v_{\textnormal{term}}&=&\sqrt{\frac{2\,mg}{C_{\textnormal{d}}\,\rho_{\textnormal{air}}\,A}}. \label{eqn:vterm}
+\end{eqnarray}
+
+\noindent The ping pong ball was weighed to be $2.8\,\textnormal{g}$, and its diameter is $40\,\textnormal{mm}$. The cross-sectional area is $A\,=\,\pi\,(0.02\,\textnormal{m})^{2}\,\approx\,0.0013\,\textnormal{m}^{2}$ because the thickness of the ball is negligible. In Colorado Springs where this experiment took place, the gravitational acceleration is $g\,=\,9.809\,\frac{\textnormal{m}}{\textnormal{s}^{2}}$, and the air density is $\rho_{air}\,=\,1.275\,\frac{\textnormal{kg}}{\textnormal{m}^{3}}$. Finally, for a sphere, the drag coefficient $C_{\textnormal{d}}$ is between $0.3$ and $0.5$ depending on the roughness of the surface. $C_{\textnormal{d}}\,=\,0.3$ should be taken to estimate the upper bound for $v_{\textnormal{term}}$ and $C_{\textnormal{d}}\,=\,0.5$ for the lower bound. Therefore, we will get $v_{\textnormal{term}}\,=\,10.7\,\frac{\textnormal{m}}{\textnormal{s}}$ for a very smooth sphere and $v_{\textnormal{term}}\,=\,8.3\,\frac{\textnormal{m}}{\textnormal{s}}$ for a very rough sphere. We were expected to find the terminal speed for the ping pong ball in between. Also, the time it takes the ball to reach $v_{\textnormal{term}}$ could be estimated from Equation~\ref{eqn:t}
+
+\begin{eqnarray}
+t&=&\frac{v_{\textnormal{term}}}{g}\,\textnormal{arctanh}\,\bigg(\frac{v}{v_{\textnormal{term}}}\bigg).
+\label{eqn:t}
+\end{eqnarray}
+
+\noindent Furthermore, the height where the ball is dropped from is also given by, 
+
+\begin{eqnarray}
+y&=&\frac{v_{\textnormal{term}}^{2}}{g}\,\ln\bigg[\textnormal{cosh}\,\bigg(\frac{g\,t}{v_{\textnormal{term}}}\bigg)\bigg].
+\label{eqn:h}
+\end{eqnarray}
+
+\noindent As $v_{\textnormal{term}}$ has already been estimated, a plot of $y$ vs $v$ could be generated in order to see how high the ball needs to be dropped from. As Figure~\ref{fig:height} indicates, the height should be about $12\,\textnormal{m}$ for the ball to reach terminal velocity. Since the maximum height for Barnes building is about $15\,\textnormal{m}$ and the ping pong ball is not extremely smooth, we are then safe to assume that the experimental setting is appropriate for this experiment. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.63\textwidth]{height.png}
+\caption{height vs speed for different terminal speeds}
+\label{fig:height}
+\end{figure}
+
+\noindent A special velocity measuring apparatus has been built for this experiment in order to approximate the final velocity of the falling ping pong ball. As Figure~\ref{fig:app} shows, two infrared (IR) emitter and sensor bars have been vertically separated by a distance of $9.85\,\textnormal{cm}$. As the ping pong ball fell through the apparatus, it would block the infrared emitted by the IR emitter, which causes a voltage difference of the photo transistor inside the IR sensor bar as suddenly there's no infrared coming in. The analog signal would then be sent to Adruino and converted to time. The apparatus is extremely sensitive to time, and could measure time in microseconds. If the signals sent from the top and bottom sensor bars were converted to time accordingly, the time difference $\Delta{t}$ could be calculated and used to approximate the speed.
+
+\begin{eqnarray}
+v&=&\frac{\Delta{s}}{\Delta{t}}
+\label{eqn:speed}
+\end{eqnarray}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{app.png}
+\caption{apparatus}
+\label{fig:app}
+\end{figure}
+
+\noindent One major difficulty of this experiment was to give a precise measurement of the height since the tape ruler tended to bend as the ball was dropped from a high floor. As we went to higher floors, the spacing between the IR sensor and emitter bars appeared very narrow to human eyes, making the success of taking a valid measurement extremely hard. The range of the light emitted by the IR emitter was limited. As a result, the data we were able to collect in high floor was so much less compared to the data collected from low floor. Any subtle spinnings associated with the initial drop would cause big deviation of the ball's trajectory. Therefore, in order to get valid measurements, precise dropping technique was required. 
+
+\section{Data Analysis}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{pp_res.png}
+\caption{integrated plot}
+\label{fig:results}
+\end{figure}
+
+\noindent The experimental results could be obtained by plotting the final speed captured by our apparatus versus the height the ball was dropped from. Figure~\ref{fig:results} demonstrates valuable information regarding the terminal velocity of the ping pong ball. Each graph will be explained following the sequence of the legend. The first and the third graphs are identical to those previously shown in Figure~\ref{fig:height}, which represent the terminal speeds of the ping pong as if it's extremely smooth and extremely rough. All of them are theoretically predicted. 
+
+\noindent The main goal of this data analysis was to find the terminal speed of our ping pong balls. $v_{\textnormal{term}}$ could be obtained by trying to fit the data in the model previously discussed in Equation~\ref{eqn:t} and Equation~\ref{eqn:h}. The only variable we don't have is $v_{\textnormal{term}}$, which is also what we were trying to find. Since the data fell in between the smooth ball curve and the rough ball curve. We would know that $v_{\textnormal{term}}$ of the ping pong ball should also fall in between $8.3\,\frac{\textnormal{m}}{\textnormal{s}}$ and $10.7\,\frac{\textnormal{m}}{\textnormal{s}}$. Therefore, by picking values in this range, we would be able to find the terminal velocity that makes our model best fit the data, which is $v_{\textnormal{term}}\,=\,10.0\,\frac{\textnormal{m}}{\textnormal{s}}$. Accordingly, the drag coefficient could also be obtained by referring Equation~\ref{eqn:cd}, which is
+
+\begin{eqnarray}
+C_{\textnormal{d}}&=&\frac{2(0.0028\,\textnormal{kg})(9.809\,\frac{\textnormal{m}}{\textnormal{s}^{2}})}{(1.275\,\frac{\textnormal{kg}}{\textnormal{m}^{3}})(0.0013\,\textnormal{m}^{2})(10.0\,\frac{\textnormal{m}}{\textnormal{s}})^{2}}.
+\label{eqn:finalcd}
+\end{eqnarray}
+
+\noindent The final result for the drag coefficient of the ping pong ball is $C_{\textnormal{d}}\,=\,0.33$. The drag coefficient of a sphere is normally between $0.3$ to $0.5$ depending on the roughness of the surface. Therefore, the surface of the ping pong ball we were testing ``Stiga One Star", was pretty smooth.  
+
+\noindent In comparison to the ping pong ball falling under air resistance, a theoretical model of the ping pong ball falling in vacuum was also attached, shown by the dash line. Since there's no air resistance, 
+
+\begin{eqnarray}
+y&=&\frac{1}{2}\,g\,t^{2} \\ 
+v&=&g\,t
+\end{eqnarray}
+
+\noindent therefore, 
+
+\begin{eqnarray}
+v&=&\sqrt{2\,g\,y}. 
+\label{eqn:vac}
+\end{eqnarray}
+
+\noindent Instead of approaching the terminal velocity, the final velocity for the ball in vacuum will continue to increase as the ball being dropped from a higher place. 
+
+\section{Error Analysis}
+
+\noindent The uncertainty of velocity was mainly contributed by the measurement of time since the separation between two sensor bars was fixed. By doing Error Propagation, we would get
+
+\begin{eqnarray}
+\sigma_{v}&=&\abs{\frac{\partial v}{\partial t}\,\sigma_{t}}.
+\label{eqn:error}
+\end{eqnarray}
+
+\noindent From Equation~\ref{eqn:speed}, $\frac{\partial v}{\partial t}$ could be derived, which is 
+
+\begin{eqnarray}
+\frac{\partial v}{\partial t}&=&-\frac{0.0985\,\textnormal{m}}{t^{2}}. 
+\label{eqn:dvdt}
+\end{eqnarray}
+
+\noindent Therefore, the uncertainty of velocity could be found by putting the data from Table~\ref{tab:data} into Equation~\ref{eqn:sigv}. The corresponding values for $\sigma_{v}$ could be found in the last column of the table.
+
+\begin{eqnarray}
+\sigma_{v}&=&\frac{0.0985\,\textnormal{m}}{t^{2}}\bigg|_{t\,=\,\overline{t}}\,\sigma_{t}. 
+\label{eqn:sigv}
+\end{eqnarray} 
+
+\begin{center}
+\captionof{table}{data} \label{tab:data}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$h\,(\textnormal{m})$ & $\overline{t}\,(\mu{\textnormal{s}})$ & $\sigma_{t}\,(\mu{\textnormal{s}})$ & $\overline{v}\,(\frac{\textnormal{m}}{\textnormal{s}})$ & $\sigma_{v}\,(\frac{\textnormal{m}}{\textnormal{s}})$ \\ \hline
+0.18 & 47679 & 416 & 2.1 & 0.02 \\ \hline
+0.20 & 44620 & 532 & 2.2 & 0.03 \\ \hline
+0.28 & 38505 & 147 & 2.6 & 0.01 \\ \hline
+0.33 & 36310 & 85 & 2.7 & 0.01 \\ \hline
+0.38 & 34483 & 82 & 2.9 & 0.01 \\ \hline
+0.48 & 31262 & 100 & 3.2 & 0.01 \\ \hline
+0.58 & 29000 & 44 & 3.4 & 0.01 \\ \hline
+0.78 & 24820 & 1460 & 4.0 & 0.23 \\ \hline
+0.98 & 23109 & 96 & 4.3 & 0.02 \\ \hline
+1.18 & 21519 & 160 & 4.6 & 0.03 \\ \hline
+1.38 & 19992 & 140 & 4.9 & 0.03 \\ \hline
+1.68 & 18452 & 83 & 5.3 & 0.02 \\ \hline
+2.18 & 16627 & 63 & 5.9 & 0.02 \\ \hline
+2.68 & 15375 & 151 & 6.4 & 0.06 \\ \hline
+3.18 & 14355 & 74 & 6.9 & 0.04 \\ \hline
+4.18 & 13065 & 67 & 7.5 & 0.04 \\ \hline
+5.68 & 11880 & 67 & 8.3 & 0.05 \\ \hline
+7.18 & 11346 & 160 & 8.7 & 0.12 \\ \hline
+13.68 & 10129 & 391 & 9.7 & 0.38 \\ \hline
+\end{tabular} \par
+\bigskip
+Experimental Results
+\end{center}
+
+\noindent One major concern for the error of this experiment came from the measurements of speed when height was small. In particular, we were concerned about whether or not Equation~\ref{eqn:speed} would be still be a good approximation for instantaneous velocity. As shown in Figure~\ref{fig:err}, the experiment was initialized with a distance of $18\,\textnormal{cm}$ from the first sensor bar. 
+
+\noindent During the initial fall, we could treat the ping pong ball as if it's falling without air resistance since drag force would mostly be overcome by gravitational force. Therefore the instantaneous velocity could be approximated by taking the average of $v_{1}$ and $v_{2}$. Also $v_{1}$ and $v_{2}$ could be calculated by using Equation~\ref{eqn:vac} since distance values were known. Since $v_{1}\,=\,1.88\,\frac{\textnormal{m}}{\textnormal{s}}$ and $v_{2}\,=\,2.34\frac{\textnormal{m}}{\textnormal{s}}$, the instantaneous velocity could be calculated, $v\,=\,2.1\frac{\textnormal{m}}{\textnormal{s}}$. This value is consistent with $\overline{v}$ in the first row of Table~\ref{tab:data}. Therefore, Equation~\ref{eqn:speed} still holds for low height situation. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.76\textwidth]{err.png}
+\caption{low height vs great height}
+\label{fig:err}
+\end{figure}
+
+\section{Conclusion}
+\noindent The result for the drag coefficient of the ping pong ball, $C_{\textnormal{d}}\,=\,0.33$, was very consistent with our theoretical prediction, which for a sphere, is in between $0.3$ and $0.5$, depending on how smooth the surface of the ball is. Also, the value we measured indeed indicates the ping pong ball has a very smooth surface. 
+
+\noindent Despite the consistent results we found, we encountered many challenges in conducting this experiment. The major challenge came from the difficulty of dropping the ball in the appropriate position where valid measurements could be taken. The distance between the IR sensor bars and the IR emitter bars was only $24\,\textnormal{cm}$ due to the limited range of IR light. It became extremely hard to take valid measurements when we went higher than $7\,\textnormal{m}$. However, we could avoid this problem by installing multiple IR sensors demonstrated in Figure~\ref{fig:multi}. As a result, the chance of getting valid measurements would largely increase. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.76\textwidth]{multi.png}
+\caption{improved apparatus}
+\label{fig:multi}
+\end{figure}
+
+
+\section{PC 361}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{check.png}
+\caption{consistency check}
+\label{fig:ch}
+\end{figure}
+
+\end{document}
