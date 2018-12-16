@@ -13,6 +13,7 @@ if you want to see the LaTeX version of this paper, you could open
 paper.tex under /latex catelog
 
 I've also included some helper python files to help you draw a line
-to fit your data. 
+to fit your data along with error analysis, you can check out the 
+files under /helper catelog.
 
 ```
